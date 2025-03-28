@@ -9,6 +9,7 @@ import CapturePage from "./pages/CapturePage";
 import './App.css'
 
 function App() {
+  
   let MyUrl = "";
   if (MyUrl){
     return (
@@ -43,7 +44,8 @@ function App() {
         <Link to="/receipts">📋</Link>
         <Link to="/">🏠</Link>
         <Link to="/capture">📷</Link>
-        </nav>
+    </nav>
+    
   </>
   );      
 }
