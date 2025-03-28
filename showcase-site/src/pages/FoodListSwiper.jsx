@@ -1,28 +1,27 @@
 import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 
 const mockData = [
-  { name: "牛奶", daysLeft: 0 },
-  { name: "優格", daysLeft: 1 },
-  { name: "雞蛋", daysLeft: 2 },
-  { name: "沙拉", daysLeft: 3 },
-  { name: "冷凍餃子", daysLeft: 5 },
-  { name: "鮮奶油", daysLeft: 7 },
+  { name: "milk", daysLeft: 0 },
+  { name: "cake", daysLeft: 1 },
+  { name: "egg", daysLeft: 2 },
+  { name: "salad", daysLeft: 3 },
+  { name: "dumpling", daysLeft: 5 },
+  { name: "beef", daysLeft: 7 },
 ];
 
-const groupByDaysLeft = (items) => {
-  return {
-    red: items.filter((i) => i.daysLeft <= 1),
-    yellow: items.filter((i) => i.daysLeft > 1 && i.daysLeft <= 3),
-    green: items.filter((i) => i.daysLeft > 3),
-  };
-};
+const groupByDaysLeft = (items) => ({
+  red: items.filter((i) => i.daysLeft <= 1),
+  yellow: items.filter((i) => i.daysLeft > 1 && i.daysLeft <= 3),
+  green: items.filter((i) => i.daysLeft > 3),
+});
 
 const FoodListGroup = ({ title, items, color }) => (
   <div className="food-group" style={{ backgroundColor: color }}>
     <h2>{title}</h2>
     {items.map((item, index) => (
       <div key={index} className="food-card">
-        <strong>{item.name}</strong> - 還有 {item.daysLeft} 天
+        <strong>{item.name}</strong> - {item.daysLeft} days left
       </div>
     ))}
   </div>
@@ -32,24 +31,28 @@ export default function FoodListSwiper() {
   const [activeIndex, setActiveIndex] = useState(0);
   const grouped = groupByDaysLeft(mockData);
   const categories = [
-    { title: "🔴 即將過期", key: "red", color: "#ffcccc" },
-    { title: "🟡 快過期", key: "yellow", color: "#fff3cd" },
-    { title: "🟢 安全", key: "green", color: "#d4edda" },
+    { title: "🔴 emergency", key: "red", color: "#ffcccc" },
+    { title: "🟡 attention", key: "yellow", color: "#fff3cd" },
+    { title: "🟢 safe", key: "green", color: "#d4edda" },
   ];
   const current = categories[activeIndex];
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setActiveIndex((activeIndex + 1) % 3),
+    onSwipedRight: () => setActiveIndex((activeIndex + 2) % 3), // +2 % 3 == -1
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true, // 滑鼠也可測試
+  });
+
   return (
-    <>
-      <div className="nav-buttons">
-        <button onClick={() => setActiveIndex((activeIndex + 2) % 3)}>←</button>
-        <span>{current.title}</span>
-        <button onClick={() => setActiveIndex((activeIndex + 1) % 3)}>→</button>
+    <div {...handlers}>
+      <div className="swipe-title" style={{ color: "white", marginBottom: "1rem" }}>
       </div>
       <FoodListGroup
         title={current.title}
         items={grouped[current.key]}
         color={current.color}
       />
-    </>
+    </div>
   );
 }

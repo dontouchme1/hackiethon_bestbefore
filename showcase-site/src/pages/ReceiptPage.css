@@ -1,0 +1,78 @@
+.receipt-page {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .receipt-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .receipt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  
+    /* ✅ 隱藏滾輪的重點（兼容多瀏覽器） */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE 10+ */
+  }
+  
+  .receipt-list::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari, Edge */
+  }
+  
+  .receipt-card {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 340px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  .item-edit {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .confirm-button {
+    margin-top: 1rem;
+    background: #4caf50;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }

@@ -1,11 +1,11 @@
 import React from "react";
 import FoodListSwiper from "./FoodListSwiper";
-import "./HomePage.css"; // 確保有掛 CSS
+import "./HomePage.css"; 
 
 export default function HomePage() {
   return (
     <div className="homepage-container">
-      <h1 className="homepage-title">🍱 到期食物清單</h1>
+      <h1 className="homepage-title">BestBefore</h1>
       <FoodListSwiper />
     </div>
   );
