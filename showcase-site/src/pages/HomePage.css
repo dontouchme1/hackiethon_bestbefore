@@ -1,0 +1,18 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 5rem; /* ← 控制往下的距離 */
+    padding-bottom: 100px;
+    margin: 0 auto;
+  }
+  .homepage-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 0 10px #00000080;
+  }

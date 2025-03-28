@@ -1,75 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
-
-.App {
-  background: linear-gradient(180deg,rgb(0, 0, 0),rgb(0, 0, 0));
-  font-family: 'Poppins', sans-serif;
+/* 外框居中展示 */
+.widget-wrapper {
+  height: 100vh;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.outline-text {
-  font-size: 12rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -33%);
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
-  z-index: 0;
-  user-select: none;
-  pointer-events: none;
+/* 模擬 App 卡片 */
+.app-card {
+  width: 390px;
+  height: 750px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.main-title {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: white;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 1;
-  white-space: nowrap;
-  pointer-events: none;
+/* App 主要內容區域（可滾動） */
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  padding-bottom: 80px;
 }
 
-@media (max-width: 768px) {
-  .outline-text {
-    font-size: 6rem;
-    top: 35%;
-  }
-
-  .main-title {
-    font-size: 3rem;
-  }
-}
-
-
+/* App 底部固定導覽列 */
 .bottom-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px; /* ⬅️ 比原本 60px 更大 */
-  background: #f0f0f0;
+  height: 60px;
+  background: #f4f4f4;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid #ccc;
-  font-size: 1.8rem; /* ⬅️ 圖示/文字放大 */
-  padding-bottom: 10px;
-  z-index: 10;
-}
-
-.bottom-nav a {
-  color: #333;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: background-color 0.2s ease;
-}
-
-.bottom-nav a:hover {
-  background-color: #e0e0e0;
+  font-size: 1.5rem;
+  border-top: 1px solid #ddd;
 }
