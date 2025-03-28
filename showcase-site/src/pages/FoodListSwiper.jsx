@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import "./FoodListSwiper.css"; // 確保有這個 CSS 檔案
 
 const mockData = [
   { name: "milk", daysLeft: 0 },
@@ -18,10 +19,11 @@ const groupByDaysLeft = (items) => ({
 
 const FoodListGroup = ({ title, items, color }) => (
   <div className="food-group" style={{ backgroundColor: color }}>
-    <h2>{title}</h2>
+    <div className="group-title">{title}</div>
     {items.map((item, index) => (
       <div key={index} className="food-card">
-        <strong>{item.name}</strong> - {item.daysLeft} days left
+        <span>{item.name}</span>
+        <span>{item.daysLeft} days left</span>
       </div>
     ))}
   </div>
@@ -39,15 +41,13 @@ export default function FoodListSwiper() {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => setActiveIndex((activeIndex + 1) % 3),
-    onSwipedRight: () => setActiveIndex((activeIndex + 2) % 3), // +2 % 3 == -1
+    onSwipedRight: () => setActiveIndex((activeIndex + 2) % 3),
     preventDefaultTouchmoveEvent: true,
-    trackMouse: true, // 滑鼠也可測試
+    trackMouse: true,
   });
 
   return (
-    <div {...handlers}>
-      <div className="swipe-title" style={{ color: "white", marginBottom: "1rem" }}>
-      </div>
+    <div {...handlers} className="swiper-container">
       <FoodListGroup
         title={current.title}
         items={grouped[current.key]}
