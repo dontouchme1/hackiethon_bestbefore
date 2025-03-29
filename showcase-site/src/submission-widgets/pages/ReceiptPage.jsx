@@ -35,7 +35,7 @@ export default function ReceiptPage() {
         { name: "salad", expiry: "2024-03-27", storage: "Refrigerate" },
         { name: "sandwich", expiry: "2024-03-27", storage: "Refrigerate" },
         { name: "chicken", expiry: "2024-05-01", storage: "Freeze" },
-        { name: "Toast", expiry: "2024-04-05", storage: "Normal temperature" },
+        { name: "toast", expiry: "2024-04-05", storage: "Normal temperature" },
         { name: "instant noodles", expiry: "2025-04-01", storage: "Normal temperature" },
         { name: "fish", expiry: "2024-04-05", storage: "Freeze" },
         { name: "rice", expiry: "2024-04-01", storage: "Normal temperature" },
@@ -77,7 +77,7 @@ export default function ReceiptPage() {
       store: "IKEA",
       amount: 218,
       items: [
-        { name: "Swedish Meatballs", expiry: "2024-05-01", storage: "Freeze" }
+        { name: "meatballs", expiry: "2024-05-01", storage: "Freeze" }
       ]
     },
     {
@@ -116,7 +116,10 @@ export default function ReceiptPage() {
 
   return (
     <div className="receipt-page">
-      <h2 className="receipt-title">Invoice Record</h2>
+        <img
+          src="/receipt_title.png"
+          className="receipt-title-image"
+        />
       <div className="receipt-list">
         {mockReceipts.map((r) => (
           <div
@@ -127,7 +130,7 @@ export default function ReceiptPage() {
           >
             <div className="store-name">🧾 {r.store}</div>
             <p>📅 {r.date}</p>
-            <p>💵 NT$ {r.amount}</p>
+            <p>💵 $ {r.amount}</p>
           </div>
         ))}
       </div>

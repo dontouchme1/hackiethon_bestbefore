@@ -10,7 +10,7 @@
   .app-card {
     width: 390px;
     height: 600px;
-    background: url('./pics/background.png') no-repeat center center;
+    background: url('/background_low_sat.jpeg') no-repeat center center;
     background-size: cover;           /* ✅ 讓圖片鋪滿白卡片 */
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
