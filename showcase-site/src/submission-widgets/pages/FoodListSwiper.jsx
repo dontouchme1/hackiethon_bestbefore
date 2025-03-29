@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import "./FoodListSwiper.css"; // 確保有這個 CSS 檔案
+import React from "react";
+import "./FoodListSwiper.css";
 
 const mockData = [
   { name: "milk", daysLeft: 3 },
@@ -26,9 +25,9 @@ const mockData = [
 ];
 
 const groupByDaysLeft = (items) => ({
-  red: items.filter((i) => i.daysLeft <= 7),
-  yellow: items.filter((i) => i.daysLeft > 7 && i.daysLeft <= 30),
-  green: items.filter((i) => i.daysLeft > 30),
+  emergency: items.filter((i) => i.daysLeft <= 7),
+  attention: items.filter((i) => i.daysLeft > 7 && i.daysLeft <= 30),
+  safe: items.filter((i) => i.daysLeft > 30),
 });
 
 const FoodListGroup = ({ title, items, color }) => (
@@ -43,29 +42,26 @@ const FoodListGroup = ({ title, items, color }) => (
   </div>
 );
 
-export default function FoodListSwiper() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function FoodListSwiper({ category }) {
   const grouped = groupByDaysLeft(mockData);
-  const categories = [
-    { title: "🔴 emergency", key: "red", color: "#ffcccc" },
-    { title: "🟡 attention", key: "yellow", color: "#fff3cd" },
-    { title: "🟢 safe", key: "green", color: "#d4edda" },
-  ];
-  const current = categories[activeIndex];
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => setActiveIndex((activeIndex + 1) % 3),
-    onSwipedRight: () => setActiveIndex((activeIndex + 2) % 3),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
+  const colorMap = {
+    emergency: "#ffcccc",
+    attention: "#fff3cd",
+    safe: "#d4edda",
+  };
 
   return (
-    <div {...handlers} className="swiper-container">
+    <div className="swiper-container">
       <FoodListGroup
-        title={current.title}
-        items={grouped[current.key]}
-        color={current.color}
+        title={
+          category === "emergency"
+            ? "🔴 emergency"
+            : category === "attention"
+            ? "🟡 attention"
+            : "🟢 safe"
+        }
+        items={grouped[category]}
+        color={colorMap[category]}
       />
     </div>
   );

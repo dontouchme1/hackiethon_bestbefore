@@ -1,17 +1,11 @@
-
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ReceiptPage from "./pages/ReceiptPage";
 import CapturePage from "./pages/CapturePage";
 import "./MyWidget.css";
 
-
 const MyWidget = () => {
-  const [text, setText] = useState('Hello, World!');
-
-  const changeText = () => setText('Text has been changed!');
-
   return (
     <div className="widget-wrapper">
       <div className="app-card">
