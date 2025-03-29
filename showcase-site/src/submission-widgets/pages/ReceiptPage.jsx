@@ -37,10 +37,10 @@ export default function ReceiptPage() {
         {name: "salad", expiry: "27/03/2024", storage: "Refrigerate"},
         {name: "sandwich", expiry: "27/03/2024", storage: "Refrigerate"},
         {name: "chicken", expiry: "01/05/2024", storage: "Freeze"},
-        {name: "toast", expiry: "05/04/2024", storage: "Normal temperature"},
-        {name: "instant noodles", expiry: "01/04/2025", storage: "Normal temperature"},
+        {name: "toast", expiry: "05/04/2024", storage: "Room temperature"},
+        {name: "instant noodles", expiry: "01/04/2025", storage: "Room temperature"},
         {name: "fish", expiry: "05/04/2024", storage: "Freeze"},
-        {name: "rice", expiry: "01/04/2024", storage: "Normal temperature"},
+        {name: "rice", expiry: "01/04/2024", storage: "Room temperature"},
         {name: "beef", expiry: "05/04/2024", storage: "Freeze"}
       ]
     },
@@ -98,7 +98,7 @@ export default function ReceiptPage() {
       store: "7-11",
       amount: 99,
       items: [
-        {name: "rice ball", expiry: "20/03/2024", storage: "Normal temperature"}
+        {name: "rice ball", expiry: "20/03/2024", storage: "Room temperature"}
       ]
     },
     {
@@ -203,7 +203,6 @@ export default function ReceiptPage() {
                         onChange={(date) => handleExpiryChange(index, date)}
                         dateFormat="dd/MM/yyyy"
                         placeholderText="Select expiry"
-                        calendarClassName="custom-calendar"
                         popperContainer={({ children }) => <div>{children}</div>}
                       />
                     </div>
@@ -215,7 +214,7 @@ export default function ReceiptPage() {
                       >
                         <option value="Refrigerate">Refrigerate</option>
                         <option value="Freeze">Freeze</option>
-                        <option value="Normal temperature">Normal temperature</option>
+                        <option value="Room temperature">Room temperature</option>
                       </select>
                     </div>
                   </div>

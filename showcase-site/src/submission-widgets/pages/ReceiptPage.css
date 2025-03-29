@@ -170,7 +170,3 @@
   border: none;
   cursor: pointer;
 }
-
-.custom-calendar .react-datepicker-popper {
-  width: 20%; /* !important; 確保不受其他樣式影響 */
-}
