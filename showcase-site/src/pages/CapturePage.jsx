@@ -38,7 +38,9 @@ export default function CapturePage() {
           📁
           <input type="file" accept="image/*" onChange={handleUpload} hidden />
         </label>
-        <button className="shutter-btn" onClick={capture}>📸</button>
+        <button className="shutter-btn" onClick={capture}>
+            <img src="/shutter-camera.png" alt="Shutter" className="shutter-icon" />
+        </button>
       </div>
     </div>
   );
