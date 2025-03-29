@@ -18,9 +18,15 @@ function App() {
         </div>
 
         <nav className="bottom-nav">
-          <Link to="/receipts">📋</Link>
-          <Link to="/">🏠</Link>
-          <Link to="/capture">📷</Link>
+          <Link to="/receipts">
+            <img src="/receipt_folder.png" alt="Receipts" className="nav-icon" />
+          </Link>
+          <Link to="/">
+            <img src="/home.png" alt="Home" className="nav-icon" />
+          </Link>
+          <Link to="/capture">
+            <img src="/camera.png" alt="Camera" className="nav-icon" />
+          </Link>
         </nav>
       </div>
     </div>

@@ -35,11 +35,11 @@ export default function CapturePage() {
 
       <div className="camera-controls">
         <label className="upload-btn">
-          📁
-          <input type="file" accept="image/*" onChange={handleUpload} hidden />
+            <img src="/image.png" alt="Upload" className="upload-icon" />
+            <input type="file" accept="image/*" onChange={handleUpload} hidden />
         </label>
         <button className="shutter-btn" onClick={capture}>
-            <img src="/shutter-camera.png" alt="Shutter" className="shutter-icon" />
+            <img src="/lens.png" alt="Shutter" className="shutter-icon" />
         </button>
       </div>
     </div>

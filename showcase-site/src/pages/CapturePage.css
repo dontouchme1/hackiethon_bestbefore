@@ -26,11 +26,25 @@
   }
   
   .upload-btn {
-    font-size: 1.8rem;
     background: white;
-    padding: 0.5rem;
-    border-radius: 12px;
+    padding: 0.6rem;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .upload-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .upload-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
   }
   
   .shutter-btn {
