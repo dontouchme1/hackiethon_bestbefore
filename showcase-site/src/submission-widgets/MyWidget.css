@@ -59,4 +59,35 @@
   .nav-icon:hover {
     transform: scale(1.1);
   }
+  .module-swiper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .module-carousel {
+    display: flex;
+    height: 100%;
+  }
+  
+  .dot-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+  
+  .dot.active {
+    background: #4caf50;
+  }
   
