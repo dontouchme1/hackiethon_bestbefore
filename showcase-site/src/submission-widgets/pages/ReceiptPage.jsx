@@ -5,7 +5,7 @@ import "./ReceiptPage.css";
 export default function ReceiptPage() {
   const [selectedReceipt, setSelectedReceipt] = useState(null);
 
-  const mockReceipts = [
+  const [mockReceipts, setMockReceipts] = useState([
     {
       id: 1,
       date: "2024/03/28",
@@ -109,11 +109,48 @@ export default function ReceiptPage() {
         { name: "fries ", expiry: "2024-05-01", storage: "Freeze" }
       ]
     }
-  ];
+  ]);
 
-  const openModal = (receipt) => setSelectedReceipt(receipt);
+  const openModal = (receipt) => {
+    // 複製 receipt 避免直接修改原始 state
+    setSelectedReceipt({ ...receipt, items: [...receipt.items] });
+  };
   const closeModal = () => setSelectedReceipt(null);
 
+  // 更新 selectedReceipt 的 storage
+  const handleStorageChange = (index, newStorage) => {
+    setSelectedReceipt((prevReceipt) => {
+      if (!prevReceipt) return prevReceipt;
+
+      const updatedItems = [...prevReceipt.items];
+      updatedItems[index] = { ...updatedItems[index], storage: newStorage };
+
+      return { ...prevReceipt, items: updatedItems };
+    });
+  };
+
+  // 更新 selectedReceipt 的 Expiry Date
+  const handleExpiryChange = (index, newDate) => {
+    setSelectedReceipt((prevReceipt) => {
+      if (!prevReceipt) return prevReceipt;
+
+      const updatedItems = [...prevReceipt.items];
+      updatedItems[index] = { ...updatedItems[index], expiry: newDate };
+
+      return { ...prevReceipt, items: updatedItems };
+    });
+  };
+  
+  // 按下「Save」按鈕時，更新 mockReceipts
+  const saveChanges = () => {
+    setMockReceipts((prevReceipts) =>
+      prevReceipts.map((receipt) =>
+        receipt.id === selectedReceipt.id ? selectedReceipt : receipt
+      )
+    );
+    closeModal();
+  };
+  
   return (
     <div className="receipt-page">
         <img
@@ -156,22 +193,28 @@ export default function ReceiptPage() {
                     </div>
                     <div className="item-detail">
                       <label>Expiry:</label>
-                      <input type="date" defaultValue={item.expiry} />
+                      <input 
+                        type="date" 
+                        value={item.expiry} 
+                        onChange={(e) => handleExpiryChange(index, e.target.value)}
+                      />
                     </div>
                     <div className="item-detail">
                       <label>Preservation:</label>
-                      <select defaultValue={item.storage}>
-                        <option>Refrigerate</option>
-                        <option>Freeze</option>
-                        <option>Normal temperature</option>
+                      <select
+                        value={item.storage} 
+                        onChange={(e) => handleStorageChange(index, e.target.value)}
+                      >
+                        <option value="Refrigerate">Refrigerate</option>
+                        <option value="Freeze">Freeze</option>
+                        <option value="Normal temperature">Normal temperature</option>
                       </select>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            <button className="confirm-button" onClick={closeModal}>save</button>
+            <button className="confirm-button" onClick={saveChanges}>Save</button>
           </div>
         </div>
       )}
