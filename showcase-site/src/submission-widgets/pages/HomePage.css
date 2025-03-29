@@ -19,19 +19,11 @@ html, body {
     overflow: hidden;           /* ✅ 防止滑動 */
     box-sizing: border-box;
   }
-  
-  .homepage-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: #000;
-    text-shadow: 0 0 10px #00000030;
-  }
 
   .homepage-title-image {
     max-width: 100%;
     height: auto;
-    margin: 0 auto 1.5rem;
+    margin-top: 0px;     /* 增加上方空間 */
     display: block;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
     object-fit: contain;

@@ -116,7 +116,10 @@ export default function ReceiptPage() {
 
   return (
     <div className="receipt-page">
-      <h2 className="receipt-title">Invoice Record</h2>
+        <img
+          src="/invoice_title.png"
+          className="receipt-title-image"
+        />
       <div className="receipt-list">
         {mockReceipts.map((r) => (
           <div
