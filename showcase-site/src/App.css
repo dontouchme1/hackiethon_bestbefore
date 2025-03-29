@@ -48,3 +48,14 @@
     font-size: 3rem;
   }
 }
+
+.app-card {
+  position: relative; /* ✅ 讓 modal 可以根據它定位 */
+  width: 390px;
+  height: 750px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

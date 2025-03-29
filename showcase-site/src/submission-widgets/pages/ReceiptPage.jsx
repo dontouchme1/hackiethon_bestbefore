@@ -134,38 +134,44 @@ export default function ReceiptPage() {
 
       {selectedReceipt && (
         <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <h3 className="modal-title">{selectedReceipt.store}</h3>
-            <div className="line-container">
-              <div className="modal-line"></div>
-              <span className="date-text">{selectedReceipt.date}</span>
-              <div className="modal-line"></div>
+          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3 className="modal-title">{selectedReceipt.store}</h3>
+              <div className="line-container">
+                <div className="modal-line"></div>
+                <span className="date-text">{selectedReceipt.date}</span>
+                <div className="modal-line"></div>
+              </div>
             </div>
-            <div className="receipt-container">
-              {selectedReceipt.items.map((item, index) => (
-                <div key={index} className="receipt-item">
-                  <div className="item-header">
-                    <span className="item-name">{item.name}</span>
+
+            <div className="modal-body">
+              <div className="receipt-container">
+                {selectedReceipt.items.map((item, index) => (
+                  <div key={index} className="receipt-item">
+                    <div className="item-header">
+                      <span className="item-name">{item.name}</span>
+                    </div>
+                    <div className="item-detail">
+                      <label>Expiry:</label>
+                      <input type="date" defaultValue={item.expiry} />
+                    </div>
+                    <div className="item-detail">
+                      <label>Preservation:</label>
+                      <select defaultValue={item.storage}>
+                        <option>Refrigerate</option>
+                        <option>Freeze</option>
+                        <option>Normal temperature</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="item-detail">
-                    <label>Expiry:</label>
-                    <input type="date" defaultValue={item.expiry} />
-                  </div>
-                  <div className="item-detail">
-                    <label>Preservation:</label>
-                    <select defaultValue={item.storage}>
-                      <option>Refrigerate</option>
-                      <option>Freeze</option>
-                      <option>Normal temperature</option>
-                    </select>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+
             <button className="confirm-button" onClick={closeModal}>save</button>
-            </div>
+          </div>
         </div>
-        )}
+      )}
     </div>
   );
 }
