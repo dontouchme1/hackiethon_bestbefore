@@ -16,7 +16,6 @@
     overflow-y: auto;
     padding-right: 0.5rem;
   
-    /* ✅ 隱藏滾輪的重點（兼容多瀏覽器） */
     scrollbar-width: none;        /* Firefox */
     -ms-overflow-style: none;     /* IE 10+ */
   }
@@ -75,4 +74,14 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  .receipt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
   }
