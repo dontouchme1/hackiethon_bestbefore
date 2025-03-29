@@ -23,7 +23,7 @@ html, body {
   .homepage-title-image {
     max-width: 100%;
     height: auto;
-    margin-top: -19px;     /* 增加上方空間 */
+    margin-top: -20px;     /* 增加上方空間 */
     display: block;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
     object-fit: contain;

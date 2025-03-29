@@ -117,7 +117,7 @@ export default function ReceiptPage() {
   return (
     <div className="receipt-page">
         <img
-          src="/invoice_title.png"
+          src="/receipt_title.png"
           className="receipt-title-image"
         />
       <div className="receipt-list">
