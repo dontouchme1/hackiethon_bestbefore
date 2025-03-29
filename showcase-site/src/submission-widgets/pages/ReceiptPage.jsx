@@ -116,7 +116,7 @@ export default function ReceiptPage() {
 
   return (
     <div className="receipt-page">
-      <h2 className="receipt-title">📋 Invoice Record</h2>
+      <h2 className="receipt-title">Invoice Record</h2>
       <div className="receipt-list">
         {mockReceipts.map((r) => (
           <div
