@@ -48,7 +48,7 @@ export default function ReceiptPage() {
       store: "Woolworths",
       amount: 145,
       items: [
-        { name: "Yogurt", expiry: "2024-03-29", storage: "Refrigerate" }
+        { name: "yogurt", expiry: "2024-03-29", storage: "Refrigerate" }
       ]
     },
     {
@@ -135,26 +135,33 @@ export default function ReceiptPage() {
       {selectedReceipt && (
         <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <h3>🧾 {selectedReceipt.store} - {selectedReceipt.date}</h3>
-            <ul>
-                {selectedReceipt.items.map((item, index) => (
-                <li key={index} className="item-edit">
-                    <strong>{item.name}</strong>
-                    <div>
-                    expiry day: 
+            <h3 className="modal-title">{selectedReceipt.store}</h3>
+            <div className="line-container">
+              <div className="modal-line"></div>
+              <span className="date-text">{selectedReceipt.date}</span>
+              <div className="modal-line"></div>
+            </div>
+            <div className="receipt-container">
+              {selectedReceipt.items.map((item, index) => (
+                <div key={index} className="receipt-item">
+                  <div className="item-header">
+                    <span className="item-name">{item.name}</span>
+                  </div>
+                  <div className="item-detail">
+                    <label>Expiry:</label>
                     <input type="date" defaultValue={item.expiry} />
-                    </div>
-                    <div>
-                    storage method: 
+                  </div>
+                  <div className="item-detail">
+                    <label>Preservation:</label>
                     <select defaultValue={item.storage}>
-                    <option>Refrigerate</option>
-                    <option>Freeze</option>
-                    <option>Normal temperature</option>
+                      <option>Refrigerate</option>
+                      <option>Freeze</option>
+                      <option>Normal temperature</option>
                     </select>
-                    </div>
-                </li>
-                ))}
-            </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
             <button className="confirm-button" onClick={closeModal}>save</button>
             </div>
         </div>

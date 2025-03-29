@@ -10,7 +10,7 @@ const mockData = [
   { name: "dumpling", daysLeft: 60 },
   { name: "beef", daysLeft: 14 },
   { name: "rice", daysLeft: 100 },
-  { name: "Toast", daysLeft: 6 },
+  { name: "toast", daysLeft: 6 },
   { name: "instant noodles", daysLeft: 60 },
   { name: "Yogurt", daysLeft: 3 },
   { name: "chicken", daysLeft: 15 },

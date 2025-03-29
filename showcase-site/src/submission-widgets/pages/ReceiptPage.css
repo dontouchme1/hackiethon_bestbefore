@@ -1,11 +1,6 @@
-.receipt-page {
+  .receipt-page {
     padding: 1rem;
     text-align: center;
-  }
-  
-  .receipt-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
   }
   
   .receipt-list {
@@ -46,14 +41,22 @@
   }
   
   .modal-card {
-    background: #fff;
     padding: 1.5rem;
     border-radius: 16px;
-    width: 340px;
-    max-height: 80vh;
+    width: 300px;
+    height: 600px;
+    max-height: 100vh;
     overflow-y: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s ease;
+    background: url('../pics/receipt.png') no-repeat center center;
+    background-size: contain; /* 讓圖片根據內容大小縮放 */
+    background-color: transparent; /* 確保沒有多餘的顏色覆蓋 */
+    aspect-ratio: 2 / 2; /* 讓 `modal-card` 保持圖片的寬高比 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   @keyframes fadeIn {
@@ -61,11 +64,76 @@
     to   { opacity: 1; transform: scale(1); }
   }
   
-  .item-edit {
-    margin-bottom: 1rem;
+  .modal-title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: -3px;
+  }
+  
+  .modal-line {
+    width: 80%;          /* Adjust the length */
+    height: 6px;         /* Adjust the thickness */
+    background-color: black;
+    margin: 20px auto;   /* Centers it horizontally and adds vertical margin */
+    flex-grow: 1;
+  }
+
+  .line-container {
+    display: flex;            /* Use Flexbox to arrange elements */
+    align-items: center;      /* Vertically center the date */
+    justify-content: center;  /* Center the content horizontally */
+    width: 100%;
+    margin: 5px 0;
+    margin-top: -5px;
+  }
+
+  .date-text {
+    margin: 0 10px;          /* Space between the lines and the date */
+    font-size: 18px;         /* You can adjust the font size */
+  }
+
+  .receipt-container {
+    margin-top: 10px;
+  }
+  
+  .receipt-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .item-name {
     text-align: left;
   }
   
+  .item-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .item-detail label {
+    text-align: left;
+    flex: 1;
+    font-size: 12px;
+  }
+  
+  .item-detail select,
+  .item-detail input {
+    text-align: right;
+    flex: 1;
+    font-size: 12px;
+  }
+
   .confirm-button {
     margin-top: 1rem;
     background: #4caf50;
@@ -76,12 +144,3 @@
     cursor: pointer;
   }
 
-  .receipt-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
-  }
