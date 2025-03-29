@@ -3,18 +3,32 @@ import { useSwipeable } from "react-swipeable";
 import "./FoodListSwiper.css"; // 確保有這個 CSS 檔案
 
 const mockData = [
-  { name: "milk", daysLeft: 0 },
+  { name: "milk", daysLeft: 3 },
   { name: "cake", daysLeft: 1 },
-  { name: "egg", daysLeft: 2 },
+  { name: "egg", daysLeft: 7 },
   { name: "salad", daysLeft: 3 },
-  { name: "dumpling", daysLeft: 5 },
-  { name: "beef", daysLeft: 7 },
+  { name: "dumpling", daysLeft: 60 },
+  { name: "beef", daysLeft: 14 },
+  { name: "rice", daysLeft: 100 },
+  { name: "Toast", daysLeft: 6 },
+  { name: "instant noodles", daysLeft: 60 },
+  { name: "Yogurt", daysLeft: 3 },
+  { name: "chicken", daysLeft: 15 },
+  { name: "sandwich", daysLeft: 2 },
+  { name: "butter", daysLeft: 20 },
+  { name: "ham", daysLeft: 31 },
+  { name: "Meatballs", daysLeft: 2 },
+  { name: "tofu", daysLeft: 7 },
+  { name: "cabbage", daysLeft: 4 },
+  { name: "rice ball", daysLeft: 5 },
+  { name: "juice", daysLeft: 15 },
+  { name: "fries", daysLeft: 40 },
 ];
 
 const groupByDaysLeft = (items) => ({
-  red: items.filter((i) => i.daysLeft <= 1),
-  yellow: items.filter((i) => i.daysLeft > 1 && i.daysLeft <= 3),
-  green: items.filter((i) => i.daysLeft > 3),
+  red: items.filter((i) => i.daysLeft <= 7),
+  yellow: items.filter((i) => i.daysLeft > 7 && i.daysLeft <= 30),
+  green: items.filter((i) => i.daysLeft > 30),
 });
 
 const FoodListGroup = ({ title, items, color }) => (

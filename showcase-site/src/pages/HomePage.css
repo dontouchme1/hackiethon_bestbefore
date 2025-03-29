@@ -1,18 +1,29 @@
-.homepage-container {
+/* HomePage.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;         /* 🔑 body 高度鎖定 */
+    overflow: hidden;     /* 🔑 不讓整頁捲動 */
+  }
+  
+  .homepage-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     text-align: center;
     width: 100%;
     max-width: 600px;
-    padding-top: 5rem; /* ← 控制往下的距離 */
-    padding-bottom: 100px;
-    margin: 0 auto;
+    height: 100%;               /* ✅ 不超過卡片高度 */
+    padding: 2rem 1rem 1rem;
+    overflow: hidden;           /* ✅ 防止滑動 */
+    box-sizing: border-box;
   }
+  
   .homepage-title {
     font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 1.5rem;
-    color: rgb(0, 0, 0);
-    text-shadow: 0 0 10px #00000080;
+    color: #000;
+    text-shadow: 0 0 10px #00000030;
   }

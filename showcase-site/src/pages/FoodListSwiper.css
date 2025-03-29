@@ -1,20 +1,39 @@
-.food-group {
+/* FoodListSwiper.css */
+
+.swiper-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .food-group {
     border-radius: 16px;
     padding: 1.2rem;
-    width: 100%;               /* ✅ 滿版 */
-    max-width: 460px;          /* ✅ 上限變寬 */
+    width: 100%;
+    max-width: 460px;
     margin: 0 auto;
+  
+    max-height: 400px;          /* ✅ 這裡決定清單區域高度 */
+    overflow-y: auto;
+    background-color: #f9f9f9;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  
+    /* 隱藏滾輪 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .food-group::-webkit-scrollbar {
+    display: none;
   }
   
   .group-title {
     font-weight: bold;
     font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    justify-content: center; /* 讓 🔴 emergency 字置中 */
+    justify-content: center;
   }
   
   .food-card {
@@ -24,7 +43,7 @@
     margin-bottom: 0.8rem;
     font-size: 1rem;
     font-weight: 500;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     display: flex;
     justify-content: space-between;
   }
