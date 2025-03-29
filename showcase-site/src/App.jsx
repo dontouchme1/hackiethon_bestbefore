@@ -1,34 +1,37 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import ReceiptPage from "./pages/ReceiptPage";
-import CapturePage from "./pages/CapturePage";
-import "./App.css";
+import './App.css'
+import Navbar from './navbar'
+import Dropdown from './Dropdown'
+import DropZone from './Dropzone'
+import MyWidget from "./submission-widgets/MyWidget";
 
 function App() {
-  return (
-    <div className="widget-wrapper">
-      <div className="app-card">
-        <div className="page-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/receipts" element={<ReceiptPage />} />
-            <Route path="/capture" element={<CapturePage />} />
-          </Routes>
-        </div>
 
-        <nav className="bottom-nav">
-          <Link to="/receipts">
-            <img src="/receipt_folder.png" alt="Receipts" className="nav-icon" />
-          </Link>
-          <Link to="/">
-            <img src="/home.png" alt="Home" className="nav-icon" />
-          </Link>
-          <Link to="/capture">
-            <img src="/camera.png" alt="Camera" className="nav-icon" />
-          </Link>
-        </nav>
+  // Paste your desired website here, in full https form without the "/" at the end
+  // NOTE: not all websites work. Websites protected under CSP cannot be embedded
+  let MyUrl = "";
+  if (MyUrl){
+    return (
+      <div className="App">
+        <Navbar />
+        <DropZone url={MyUrl}/>
       </div>
+    )
+  }
+
+
+  return (
+    <div className="App" style={{ backgroundImage: 'url(/stars.png)', height: '100vh' }}>
+        <Navbar />
+        <div className="relative text-center mt-10">
+          <h1 className="outline-text">
+            SHOWCASE
+          </h1>
+          <h2 className="main-title">
+            Hackiethon Widget Showcase
+          </h2>
+        </div>
+        <MyWidget></MyWidget>
+        <DropZone/>
     </div>
   );
 }

@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+
+import React, { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ReceiptPage from "./pages/ReceiptPage";
+import CapturePage from "./pages/CapturePage";
+import "./MyWidget.css";
+
 
 const MyWidget = () => {
   const [text, setText] = useState('Hello, World!');
@@ -6,22 +13,27 @@ const MyWidget = () => {
   const changeText = () => setText('Text has been changed!');
 
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg">
-      <div className="text-center space-y-4">
-        <h2 className="text-xl font-bold text-gray-800">Empty Component</h2>
-
-        <div className="text-2xl font-bold text-blue-600">
-          {text}
+    <div className="widget-wrapper">
+      <div className="app-card">
+        <div className="page-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/receipts" element={<ReceiptPage />} />
+            <Route path="/capture" element={<CapturePage />} />
+          </Routes>
         </div>
 
-        <div className="flex justify-center">
-          <button
-            onClick={changeText}
-            className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors"
-          >
-            Change Text
-          </button>
-        </div>
+        <nav className="bottom-nav">
+          <Link to="/receipts">
+            <img src="/receipt_folder.png" alt="Receipts" className="nav-icon" />
+          </Link>
+          <Link to="/">
+            <img src="/home.png" alt="Home" className="nav-icon" />
+          </Link>
+          <Link to="/capture">
+            <img src="/camera.png" alt="Camera" className="nav-icon" />
+          </Link>
+        </nav>
       </div>
     </div>
   );
