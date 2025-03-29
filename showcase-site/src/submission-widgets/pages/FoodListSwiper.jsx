@@ -25,10 +25,11 @@ const mockData = [
 ];
 
 const groupByDaysLeft = (items) => ({
-  emergency: items.filter((i) => i.daysLeft <= 7),
-  attention: items.filter((i) => i.daysLeft > 7 && i.daysLeft <= 30),
-  safe: items.filter((i) => i.daysLeft > 30),
+  emergency: items.filter((i) => i.daysLeft <= 7).sort((a, b) => a.daysLeft - b.daysLeft),
+  attention: items.filter((i) => i.daysLeft > 7 && i.daysLeft <= 30).sort((a, b) => a.daysLeft - b.daysLeft),
+  safe: items.filter((i) => i.daysLeft > 30).sort((a, b) => a.daysLeft - b.daysLeft),
 });
+
 
 const FoodListGroup = ({ title, items, color }) => (
   <div className="food-group" style={{ backgroundColor: color }}>
