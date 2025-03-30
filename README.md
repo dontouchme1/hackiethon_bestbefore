@@ -27,6 +27,11 @@ Participants will create **React.js widgets**, which are **customizable, reusabl
    - Widgets should be adaptable to work with **our sample website** or any existing site.
    - You are allowed to use external libraries
    - If you do use external libraries, please note down the CLI command to install any dependencies, such as "npm install [dependency]"
+   ```sh
+   npm install react-router-dom
+   npm install react-webca
+   npm install swiper
+   ```
 
 3. **Evaluation Criteria** 
    - Most innovative (function-wise)
